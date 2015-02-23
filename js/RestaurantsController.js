@@ -6,6 +6,8 @@ restaurant.controller("RestaurantsCtrl", function RestaurantsCtrl($scope) {
     { name: "The Melting Pot", priceRange: "$$$$$", foodType: "fondue", location: "Downtown Portland"}
   ];
 
+  $scope.predicate = "name";
+
   $scope.addRestaurant = function() {
 
     $scope.restaurants.push({ name: $scope.name,

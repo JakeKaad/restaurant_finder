@@ -87,7 +87,7 @@
       <div class="col-md-12">
         <h2>Restaurants</h2>
         <ul>
-          <li ng-repeat="item in restaurants | filter:search | filter:search.location:true | filter:search.priceRange:true ">
+          <li ng-repeat="item in restaurants | orderBy:predicate | filter:search | filter:search.location:true | filter:search.priceRange:true ">
             <div class="well">
               <h5> {{item.name}} </h5>
               <p> Type of Food: {{ item.foodType }} </p>
