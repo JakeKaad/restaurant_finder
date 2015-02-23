@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" ng-app="restaurant">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="lib/angular.js"></script>
+  <script src="js/jquery-1.11.2.js"></script>
+  <script src="app.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="js/RestaurantsController.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container" ng-controller="RestaurantsCtrl">
+    <div class="row">
+      <div class="col-md-10">
+        <h2>Add New Restaurant:</h2>
+
+        <form ng-submit="addRestaurant()" class="form-inline" role="form">
+          <div class="form-group">
+            <input type="text" ng-model="name" class="form-control" placeholder="Restaurant Name" required/>
+            <input type="text" ng-model="foodType" class="form-control" placeholder="Food Type" required/>
+            <select ng-model="priceRange" name="priceRange" class="form-control" ng-selected="$" required>
+              <option value="$" >$</option>
+              <option value="$$">$$</option>
+              <option value="$$$">$$$</option>
+              <option value="$$$$">$$$$</option>
+              <option value="$$$$$">$$$$$</option>
+            </select>
+
+            <select ng-model="location" name="location" class="form-control" required>
+              <option value="Downtown Portland" >Downtown Portland</option>
+              <option value="NE Portland">NE Portland</option>
+              <option value="NW Portland">NW Portland</option>
+              <option value="SE Portland">SE Portland</option>
+              <option value="SW Portland">SW Portland</option>
+            </select>
+
+            <button class="btn btn-submit btn-sm" type="submit">Add</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10">
+        <h4>Search restaurants by price range:</h4>
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <input type="checkbox" ng-click="clearPriceForm(price = !price)"> Price Range
+
+            <select ng-model="search.priceRange" class="form-control" placeholder="$"  ng-hide="!price"/>
+              <option value="$">$</option>
+              <option value="$$">$$</option>
+              <option value="$$$">$$$</option>
+              <option value="$$$$">$$$$</option>
+              <option value="$$$$$">$$$$$</option>
+            </select>
+
+            <input type="checkbox" ng-click="clearLocationForm(loc = !loc)" > Location
+
+            <select ng-model="search.location" class="form-control" ng-hide="!loc">
+              <option value="Downtown Portland">Downtown Portland</option>
+              <option value="NE Portland">NE Portland</option>
+              <option value="NW Portland">NW Portland</option>
+              <option value="SE Portland">SE Portland</option>
+              <option value="SW Portland">SW Portland</option>
+            </select>
+
+            <input type="checkbox" ng-click="clearNameForm(restaurantName = !restaurantName)"> Name
+            <input type="text" ng-model="search.name" class="form-control" ng-hide="!restaurantName">
+
+            <input type="checkbox" ng-click="clearFoodForm(food = !food)"> Food Type
+            <input type="text" ng-model="search.foodType" class="form-control" ng-hide="!food">
+          </div>
+        </form>
+
+        <button id="reset-btn" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-erase"></span>  Refresh</button>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Restaurants</h2>
+        <ul>
+          <li ng-repeat="item in restaurants | filter:search | filter:search.location:true | filter:search.priceRange:true ">
+            <div class="well">
+              <h5> {{item.name}} </h5>
+              <p> Type of Food: {{ item.foodType }} </p>
+              <p> Price range: {{ item.priceRange }} Location: {{ item.location }}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
