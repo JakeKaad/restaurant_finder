@@ -9,13 +9,17 @@ restaurant.controller("RestaurantsCtrl", function RestaurantsCtrl($scope) {
   $scope.predicate = "name";
 
   $scope.addRestaurant = function() {
-
+    debugger;
+    var cssTag = $scope.createCssTag($scope.foodType)
     $scope.restaurants.push({ name: $scope.name,
       priceRange: $scope.priceRange,
       foodType: $scope.foodType,
-      location: $scope.location });
+      location: $scope.location,
+      cssTag: cssTag
+       });
       $scope.name = null;
       $scope.foodType = null;
+
   };
 
   $scope.clearPriceForm = function(price) {
@@ -44,10 +48,9 @@ restaurant.controller("RestaurantsCtrl", function RestaurantsCtrl($scope) {
     }
   };
 
-// unfinished business
-  // $scope.createCssTag = function() {
-  //   $scope.cssTag = $scope.foodType.split(" ").join("-");
-  // }
+  $scope.createCssTag = function(foodType) {
+   return $scope.foodType.split(" ").join("-");
+  }
 
 
 });
