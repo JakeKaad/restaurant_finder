@@ -96,7 +96,7 @@
         <h2>Restaurants</h2>
         <ul>
           <li ng-repeat="item in restaurants | orderBy:predicate | filter:search | filter:search.location:true | filter:search.priceRange:true ">
-            <div class="ng-class={{ item.cssTag }} well">
+            <div  class="{{ item.cssTag }} well">
               <h5> {{item.name}} </h5>
               <p class="foodtype"> Type of Food: {{ item.foodType }} </p>
               <p> Price range: {{ item.priceRange }} </p>
