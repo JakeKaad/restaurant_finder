@@ -10,10 +10,20 @@
   <script src="js/RestaurantsController.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
+
 </head>
 <body>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li ng-click="active='new'" ng-class="{ active: active ==='new' } "><a href="#">Add Restaurant<span class="sr-only">(current)</span></a></li>
+        <li ng-click="active='search'" ng-class="{ active: active ==='search' }"><a href="#">Search Restaurants</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <div class="container" ng-controller="RestaurantsCtrl">
-    <div class="row">
+    <div class="row" ng-hide="active!=='new'">
       <div class="col-md-10">
         <h2>Add New Restaurant:</h2>
 
@@ -44,7 +54,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" ng-hide="active!=='search'">
       <div class="col-md-10">
         <h4>Search restaurants by price range:</h4>
         <form class="form-inline" role="form">
@@ -76,8 +86,6 @@
             <input type="text" ng-model="search.foodType" class="form-control" ng-hide="!food">
           </div>
         </form>
-
-        <button id="reset-btn" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-erase"></span>  Refresh</button>
       </div>
     </div>
 
