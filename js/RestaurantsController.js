@@ -1,9 +1,9 @@
 restaurant.controller("RestaurantsCtrl", function RestaurantsCtrl($scope) {
   $scope.restaurants = [
-    { name: "Pizza Hut", priceRange: "$", foodType: "pizza", location: "NE Portland" },
-    { name: "Halibuts", priceRange: "$$", foodType: "Fish and Chips", location: "NE Portland" },
-    { name: "Apizza Scholls", priceRange: "$$$", foodType: "pizza", location: "SE Portland" },
-    { name: "The Melting Pot", priceRange: "$$$$$", foodType: "fondue", location: "Downtown Portland"}
+    { name: "Pizza Hut", priceRange: "$", foodType: "pizza", location: "NE Portland", cssTag: "pizza" },
+    { name: "Halibuts", priceRange: "$$", foodType: "Fish and Chips", location: "NE Portland", cssTag:"fish-and-chips" },
+    { name: "Apizza Scholls", priceRange: "$$$", foodType: "pizza", location: "SE Portland", cssTag: "pizza" },
+    { name: "The Melting Pot", priceRange: "$$$$$", foodType: "fondue", location: "Downtown Portland", cssTag: "fondue"}
   ];
 
   $scope.predicate = "name";
@@ -44,11 +44,10 @@ restaurant.controller("RestaurantsCtrl", function RestaurantsCtrl($scope) {
     }
   };
 
-});
+// unfinished business
+  // $scope.createCssTag = function() {
+  //   $scope.cssTag = $scope.foodType.split(" ").join("-");
+  // }
 
-function HeaderController($scope, $location)
-{
-    $scope.isActive = function (viewLocation) {
-        return viewLocation === $location.path();
-    };
-}
+
+});

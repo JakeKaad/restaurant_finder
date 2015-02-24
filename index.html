@@ -96,10 +96,11 @@
         <h2>Restaurants</h2>
         <ul>
           <li ng-repeat="item in restaurants | orderBy:predicate | filter:search | filter:search.location:true | filter:search.priceRange:true ">
-            <div class="well">
+            <div class="ng-class: {{ item.cssTag }} well">
               <h5> {{item.name}} </h5>
-              <p> Type of Food: {{ item.foodType }} </p>
-              <p> Price range: {{ item.priceRange }} Location: {{ item.location }}</p>
+              <p class="foodtype"> Type of Food: {{ item.foodType }} </p>
+              <p> Price range: {{ item.priceRange }} </p>
+              <p> Location: {{ item.location }} </p
             </div>
           </li>
         </ul>

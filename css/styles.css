@@ -1,3 +1,63 @@
 ul {
   list-style: none;
+
+}
+
+.pizza {
+  background-image: url('../img/peppizza.png');
+
+}
+
+.pizza p {
+  color: white;
+  background: rgba(0, 0, 0, .4);
+  max-width: 17%;
+
+}
+.pizza h5 {
+  color: white;
+  background: rgba(0, 0, 0, .4);
+  max-width: 17%
+
+}
+
+.fondue {
+  background-image: url('../img/cheese.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
+
+}
+
+.fish-and-chips {
+  background-image: url('../img/fish.jpg');
+  background-position: 50px, 70px;
+
+}
+
+.fish-and-chips h5 {
+  color: white;
+  background: rgba(0, 0, 0, .4);
+  max-width: 17%;
+
+}
+
+.fondue h5 {
+  color: white;
+  background: rgba(0, 0, 0, .4);
+  max-width: 17%;
+
+}
+
+.fish-and-chips p {
+  color: white;
+  background: rgba(0, 0, 0, .4);
+  max-width: 17%;
+
+}
+
+.fondue p {
+  color: white;
+  background: rgba(0, 0, 0, .4);
+  max-width: 17%;
+
 }
